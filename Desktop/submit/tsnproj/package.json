@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --prod",
+    "preinstall": "npm install -g @angular/cli @angular/compiler-cli typescript",
     "deploy:firebase": "ng build --prod && firebase deploy",
     "deploy:gh": "ng build --prod --base-href='https://techyguy786.github.io/github-followers/' && ngh"
   },
