@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserInfoModel} from '../models/userInfoModel';
+import { UserInfoModel } from '../models/UserInfoModel';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
