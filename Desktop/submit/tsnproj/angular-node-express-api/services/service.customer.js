@@ -15,7 +15,6 @@ let zipCodePattern = /^[0-9]*$/;
 /* customer validator shema */
 const customerVSchema = {
 		guid: {type: "string", min: 3},
-
 		first_name: { type: "string", min: 1, max: 50, pattern: namePattern},
 		last_name: { type: "string", min: 1, max: 50, pattern: namePattern},
 		email: { type: "email", max: 75 },
