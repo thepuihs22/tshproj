@@ -1,14 +1,50 @@
+
+.example-form {
+  // min-width: 150px;
+  // max-width: 500px;
+  width: 100%;
+}
+
+.mat-input-element {
+  color: white !important;
+}
+
+label {
+  color: white !important;
+}
+
 .form-group label {
   color: #FFFFFF;
 }
 
-.text-label {
-  color: #FFFFFF;
+.example-full-width {
+  width: 100%;
 }
 
-a {
-  font-size: 20px;
-  color: #FFFFFF;
-  text-align: center;
-  text-decoration-line: underline;
+.tp-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.tp-full-width {
+  width: 100%;
+}
+
+.dp-text {
+    color: white;
+}
+
+.active {
+  background-color: green;
+}
+.ui-autocomplete {
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+}
+
+.ui-autocomplete li {font-size: 16px;}
+html .ui-autocomplete {
+  height: 250px;
 }

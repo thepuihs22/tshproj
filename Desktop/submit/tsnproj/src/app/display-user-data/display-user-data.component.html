@@ -1,35 +1,41 @@
-<div>
-	<div class="form-group row"> <!-- GUD -->
-		<label class="col-xs-6 col-form-label">GUID</label>
-		<div class="col-xs-6" class="text-label">{{user.guid}}</div>
-	</div>
 
-	<div class="form-group row"> <!-- Customer UID -->
-		<label class="col-xs-6 col-form-label">Customer UID</label>
-		<div class="col-xs-6" class="text-label">{{user.uid}}</div>
-	</div>
+<form class="example-form">
+    <label for="name" class="control-label">( ชื่อ-นามสกุล )</label>
+  <mat-form-field class="example-full-width">
+    <input matInput [matAutocomplete]="auto" [formControl]="stateCtrl">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+        <img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" />
+        <span>{{ state.name }}</span> |
+        <small>ตำแหน่ง: {{state.gender}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 
-	<div class="form-group row"> <!-- First Name -->
-		<label class="col-xs-6 col-form-label">ชื่อ-นามสกุล</label>
-		<div class="col-xs-6" class="text-label">{{user.first_name}}</div>
-	</div>
+  <!-- <ul class="list-group">
+      <li class="list-group-item" *ngFor="let c of contact2" (click)="onSelect(c)">
+          {{ c.name }}
+      </li>
+  </ul> -->
+  <!-- <form class="example-form">
+    <div class="form-group">
+      <input id="input" type="text" class="form-control" keyboard-poster="" post-function="searchArtist" ng-model="selectedArtist" name="first_name" placeholder="ค้นหาชื่อ" list="_artists" />
+      <datalist id="_artists">
+        <select class="select" id="_select" name="_select" ng-model="selectedArtist" ng-options="k as v for (k,v) in contact2"></select>
+      </datalist>
+    </div>
+    <div class="form-group has-error text-center">
+      <button class="btn btn-primary" ng-click="changed()">ค้นหา</button>
+    </div>
+  </form> -->
 
-	<div class="form-group row"> <!-- Last Name -->
-		<label class="col-xs-6 col-form-label">สังกัด</label>
-		<div class="col-xs-6" class="text-label">{{user.last_name}}</div>
+<div class="form-group has-error text-center">
+    <button type="submit" class="btn btn-primary" (click)="getData()">ลงทะเบียน</button>
+    <button type="submit" class="btn btn-primary" (click)="gotoCreate()" style="margin-left: 20px;">เพิ่มรายชื่อ</button>
   </div>
 
-	<div class="form-group row"> <!-- Zip Code -->
-		<label class="col-xs-6 col-form-label">เบอร์</label>
-		<div class="col-xs-6" class="text-label">{{user.zipcode}}</div>
-	</div>
+</form>
 
-	<div class="form-group row"> <!-- E-mail -->
-		<label class="col-xs-6 col-form-label">อีเมลล์</label>
-		<div class="col-xs-6" class="text-label">{{user.email}}</div>
-  </div>
-  <br><br>
-	<nav style="text-align:right">
-      <a routerLink="/">เริ่มลงทะเบียนใหม่</a>
-  </nav>
+<div class="navbar navbar-fixed-bottom text-center">
+  <button type="submit" class="btn btn-primary" (click)="gotoAllpage()" style="margin-left: 20px;">รายชื่อทั้งหมด</button>
 </div>

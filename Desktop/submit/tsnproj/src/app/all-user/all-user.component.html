@@ -1,0 +1,39 @@
+
+<div class="container">
+    <div class="row">
+      <nav class="navbar">
+        <input class="form-control" type="text" name="search" [(ngModel)]="filter">
+      </nav>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th (click)="sort('name')">ชื่อ
+              <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th (click)="sort('genre')">สังกัด
+              <span class="glyphicon sort-icon" *ngIf="key =='gender'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th (click)="sort('genre')">สถานะ
+                <span class="glyphicon sort-icon" *ngIf="key =='isActive'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 20, currentPage: p }; let i = index">
+            <td style="width: 10%;">{{i}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.gender}}</td>
+            <td [ngClass]="{'my-class': user.isActive === true}"> {{user.isActive ? 'ลงทะเบียนแล้ว' : 'ยังไม่ลงทะเบียน' }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+     <div class="row text-right">
+        <div class="text-right total">ลงทะเบียนแล้ว {{ comeUser }} คน</div>
+        <div class="text-right total2">จำนวนรายชื่อทั้งหมด {{ allUser }} คน</div><br>
+        <button type="submit" class="btn btn-primary" (click)="gotoAdd()" style="margin-left: 20px;">ไปหน้าหลัก</button>
+     </div>
+     <br><br>
+    </div>
+

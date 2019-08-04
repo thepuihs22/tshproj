@@ -9,6 +9,19 @@ import { DisplayUserDataComponent } from './display-user-data/display-user-data.
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatAutocompleteModule, MatInputModule, MatDialogModule, MatButtonModule } from '@angular/material';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AllUserComponent } from './all-user/all-user.component';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
+
+import { QRCodeModule } from 'angularx-qrcode';
+import { RegisterComponent } from './register/register.component';
+import { ScanQrComponent } from './scan-qr/scan-qr.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -24,7 +37,10 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     InputFormComponent,
-    DisplayUserDataComponent
+    DisplayUserDataComponent,
+    AllUserComponent,
+    RegisterComponent,
+    ScanQrComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +48,16 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

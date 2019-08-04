@@ -2,11 +2,13 @@ export class UserInfoModel {
   guid: string;
   uid: string;
   // tslint:disable-next-line:variable-name
-  first_name: string;
+  name: string;
+  lastname: string;
   // tslint:disable-next-line:variable-name
-  last_name: string;
+  gender: string;
   email: string;
-  zipcode: string;
+  phone: string;
+  age: string
 
   constructor(obj: any = null) {
   if (obj != null) {

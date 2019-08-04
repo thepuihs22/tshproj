@@ -15,37 +15,38 @@ userForm: FormGroup;
 guid: string;
 serviceErrors: any = {};
 data: any = {};
+gender2: string[] = ['กระทรวงพาณิชย์', 'กระทรวงอุตสาหรรม'​, 'กระทรวงวัฒนธรรม', 'กระทรวงการศึกษา'];
+// apiURL = 'http://localhost:3001';
+apiURL = 'http://puihs22.local:3001';
+// apiURL = 'https://tsnnodeapi.herokuapp.com';
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
-    this.http.get('/api/v1/generate_uid').subscribe((data: any) => {
-      this.guid = data.guid;
-    }, error => {
-      console.log('There was an error generating the proper GUID on the server", error');
-    });
+    // this.http.get(this.apiURL + '/api/contacts').subscribe((data: any) => {
+    //   console.log(data);
+    //   // this.options = data.data;
+    //   // data.data.forEach(element => {
+    //   //     this.options.push(element.name);
+    //   // });
+
+    //   // this.guid = data.guid;
+    // }, error => {
+    //   console.log('There was an error generating the proper GUID on the server", error');
+    // });
   }
 
   invalidFirstName() {
-  return (this.submitted && (this.serviceErrors.first_name != null && this.userForm.controls.first_name.errors != null));
+  return (this.submitted && (this.serviceErrors.name != null && this.userForm.controls.name.errors != null));
   }
 
   invalidLastName() {
-    return (this.submitted && (this.serviceErrors.last_name != null || this.userForm.controls.last_name.errors != null));
+    return (this.submitted && (this.serviceErrors.gender != null || this.userForm.controls.gender.errors != null));
   }
-
-  invalidEmail() {
-    return (this.submitted && (this.serviceErrors.email != null || this.userForm.controls.email.errors != null));
-  }
-
-  invalidZipcode() {
-    return (this.submitted && (this.serviceErrors.zipcode != null || this.userForm.controls.zipcode.errors != null));
-  }
-
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
-      first_name: ['', [Validators.required, Validators.maxLength(50)]],
-      last_name: ['', [Validators.required, Validators.maxLength(50)]],
-      email: ['', [Validators.required, Validators.email, Validators.maxLength(75)]],
-      zipcode: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      name: ['', [Validators.required, Validators.maxLength(50)]],
+      gender: [''],
+      email: [''],
+      phone: [''],
     });
   }
 
@@ -55,9 +56,9 @@ data: any = {};
       return;
     } else {
       this.data = Object.assign({guid: this.guid}, this.userForm.value);
-      this.http.post('/api/v1/customer', this.data).subscribe((data2: any) => {
-        const path = '/user/' + data2.customer.uid;
-        this.router.navigate([path]);
+      this.http.post(this.apiURL + '/api/users', this.data).subscribe((data2: any) => {
+        alert('ลงทะเบียนเรียบร้อยแล้ว');
+        this.router.navigateByUrl('/');
       }, error => {
         this.serviceErrors = error.error.error;
         });

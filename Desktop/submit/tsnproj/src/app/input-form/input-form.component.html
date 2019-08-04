@@ -1,28 +1,32 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-
 	<div class="form-group" [ngClass]="{ 'has-error': invalidFirstName() }">
-		<label for="first_name" class="control-label">ชื่อ-นามสกุล ( Name )</label>
-		<input type="text" formControlName="first_name" class="form-control" id="first_name" name="first_name" placeholder="ชื่อ-นามสกุล">
-		<p *ngIf="invalidFirstName()" id="first_name_error" class="help-block">{{this.serviceErrors.first_name || 'Invalid name'}}</p>
+		<label for="name" class="control-label">ชื่อ-นามสกุล ( Name )</label>
+		<input type="text" formControlName="name" class="form-control" id="name" name="name" placeholder="ชื่อ-นามสกุล">
+		<p *ngIf="invalidFirstName()" id="name_error" class="help-block">{{this.serviceErrors.name || 'Invalid name'}}</p>
 	</div>
 
-	<div class="form-group" [ngClass]="{ 'has-error': invalidLastName() }">
-		<label for="last_name" class="control-label">สังกัด ( Under )</label>
-		<input type="text" formControlName="last_name" class="form-control" id="last_name" name="last_name" placeholder="สังกัด">
-		<p *ngIf="invalidLastName()" id="last_name_error" class="help-block">{{this.serviceErrors.last_name || 'Invalid under.'}}</p>
+	<div class="form-group">
+		<label for="gender" class="control-label">ตำแหน่ง ( Position )</label>
+		<input type="text" formControlName="gender" class="form-control" id="gender" name="gender" placeholder="สังกัด">
+		<!-- <p *ngIf="invalidLastName()" id="gender_error" class="help-block">{{this.serviceErrors.gender || 'Invalid under.'}}</p> -->
+  </div>
+  <!-- <div class="form-group">
+      <label for="power">ตำแหน่ง ( Position )</label>
+      <select class="form-control" id="gender" formControlName="gender">
+        <option *ngFor="let gender of gender2" [value]="gender">{{gender}}</option>
+      </select>
+    </div> -->
+
+	<div class="form-group">
+		<label for="phone" class="control-label">เบอร์โทร ( Tel )</label>
+		<input type="text" formControlName="phone" class="form-control" id="phone" name="phone" placeholder="เบอร์โทร">
 	</div>
 
-	<div class="form-group" [ngClass]="{ 'has-error': invalidZipcode() }">
-		<label for="zipcode" class="control-label">เบอร์โทร ( Tel )</label>
-		<input type="text" formControlName="zipcode" class="form-control" id="zipcode" name="zipcode" placeholder="เบอร์โทร">
-		<p *ngIf="invalidZipcode()" id="zipcode_error" class="help-block">{{this.serviceErrors.zipcode || 'Invalid tel.'}}</p>
-	</div>
-
-	<div class="form-group" [ngClass]="{ 'has-error': invalidEmail() }">
-		<label for="email" class="control-label">อีเมลล์ ( E-mail )</label>
+	<div class="form-group">
+		<label for="email" class="control-label">อีเมล( E-mail )</label>
 		<input type="text" formControlName="email" class="form-control" id="email" name="email" placeholder="your@email.com">
-		<p *ngIf="invalidEmail()" id="email_error" class="help-block">{{this.serviceErrors.email || 'Invalid email address.'}}</p>
-	</div>
+  </div>
+
 	<div class="form-group has-error">
 		<button type="submit" class="btn btn-primary">ลงทะเบียน</button>
 	</div>

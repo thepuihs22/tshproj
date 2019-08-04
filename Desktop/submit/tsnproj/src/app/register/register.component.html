@@ -1,0 +1,52 @@
+<div class="starter-template">
+    <h1>Sport Expo challenge</h1>
+    <p class="lead">10 - 20 August 2019</p>
+</div>
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()"> 
+            <div class="form-group" [ngClass]="{ 'has-error': this.userForm.invalid && this.submitted }">
+              <label for="name" class="control-label">Name</label>
+              <input type="text" formControlName="name" class="form-control" id="name" name="name" placeholder="ชื่อ">
+              <p *ngIf="invalidFirstName()" id="name_error" class="help-block">{{this.serviceErrors.name || 'Invalid name'}}</p>
+            </div>
+
+            <div class="form-group">
+              <label for="gender" class="control-label">Last name</label>
+              <input type="text" formControlName="lastname" class="form-control" id="lastname" name="lastname" placeholder="นามสกุล">
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="control-label">E-mail</label>
+              <input type="text" formControlName="email" class="form-control" id="email" name="email" placeholder="อีเมล">
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="control-label">Tel</label>
+              <input type="text" formControlName="phone" class="form-control" id="tel" name="tel" placeholder="โทรศัพท์">
+            </div>
+
+            <div class="form-group">
+              <label for="age" class="control-label">Age</label>
+              <input type="text" formControlName="age" class="form-control" id="age" name="age" placeholder="อายุ">
+            </div>
+
+            <div class="form-group">
+              <label for="gender" class="control-label">Gender</label><br>
+              <label class="checkbox-inline">
+                <input type="radio" id="male" name="gender" value="male" formControlName="gender"> ชาย
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" id="female" name="gender" value="female" formControlName="gender"> หญิง
+              </label>
+            </div>
+
+            <div class="form-group has-error text-center">
+              <button type="submit" class="btn btn-size">OK</button>
+            </div>
+          </form>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+
