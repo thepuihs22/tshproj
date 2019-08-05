@@ -11,8 +11,8 @@ const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://heroku_73x4q6hd:h0lak8cg0l0rujqjvnmkk4jjv2@ds133086.mlab.com:33086/heroku_73x4q6hd';
 
 // Database Name
-const dbName = 'heroku_73x4q6hd';
-// const dbName = 'pui';
+// const dbName = 'heroku_73x4q6hd';
+const dbName = 'pui';
 
 // Use connect method to connect to the server
 MongoClient.connect(url, function(err, client) {
