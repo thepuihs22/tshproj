@@ -36,7 +36,7 @@
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "mongodb": "^3.2.2",
-    "mongoose": "^5.4.22",
+    "mongoose": "^5.7.5",
     "ng-table": "^3.0.1",
     "ng2-order-pipe": "^0.1.5",
     "ng2-search-filter": "^0.4.7",
